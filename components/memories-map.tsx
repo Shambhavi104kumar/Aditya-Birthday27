@@ -46,7 +46,7 @@ export function MemoriesMap() {
 
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-[#7a5c45]/40 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Image
-          src="/images/marauders-map.png"
+          src="/images/marauders-map.svg"
           alt="An aged parchment map with faint winding corridors and ink lines"
           fill
           className="object-cover"
