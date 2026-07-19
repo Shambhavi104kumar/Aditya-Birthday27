@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-display: var(--font-cinzel), Georgia, serif;
+
+  /* Magical palette */
+  --color-ink: #0f0c0a;
+  --color-surface: #1a1512;
+  --color-surface-2: #241d18;
+  --color-gold: #d4af37;
+  --color-gold-soft: #e7c56b;
+  --color-beige: #e7d7b6;
+  --color-brown: #7a5c45;
+  --color-burgundy: #5a1e2c;
+  --color-emerald: #214b3e;
+
+  --color-background: #0f0c0a;
+  --color-foreground: #e7d7b6;
+  --color-border: rgba(212, 175, 55, 0.14);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f0c0a;
+  color: #e7d7b6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Parchment texture via layered gradients */
+.parchment {
+  background-color: #e7d7b6;
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(122, 92, 69, 0.12) 0%,
+      transparent 40%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(90, 30, 44, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(122, 92, 69, 0.15) 0%, transparent 50%);
+  color: #2a2018;
+}
+
+/* Gold shimmer text */
+.shimmer-gold {
+  background: linear-gradient(
+    100deg,
+    #7a5c45 0%,
+    #d4af37 35%,
+    #f4e3ad 50%,
+    #d4af37 65%,
+    #7a5c45 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Slow float for candles / particles */
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  45% {
+    opacity: 0.85;
+    transform: scaleY(0.94);
+  }
+  70% {
+    opacity: 0.95;
+    transform: scaleY(1.03);
+  }
+}
+
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+.animate-flicker {
+  animation: flicker 3s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #f4e3ad;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0c0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a2e24;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7a5c45;
+}
